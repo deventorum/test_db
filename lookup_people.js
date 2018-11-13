@@ -1,4 +1,3 @@
-const pg = require("pg");
 const settings = require("./settings"); // settings.json
 const dataProcess = require("./functions")
 const knex = require('knex')({
