@@ -1,5 +1,6 @@
 const pg = require("pg");
 const settings = require("./settings"); // settings.json
+const dataProcess = require("./functions")
 
 const client = new pg.Client({
   user     : settings.user,
@@ -20,8 +21,7 @@ client.connect((err) => {
     if (err) {
       return console.error("error running query", err);
     }
-    console.log(`Found ${result.rows.length} person(s) by the name ${myArgs}:`);
-    console.log(result.rows);
+    dataProcess.printResults(result.rows, myArgs)
     client.end();
   });
 });
